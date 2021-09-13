@@ -1,13 +1,13 @@
 [TOC]
 
-#Spring Bean装配
-##一、Beans配置方式
+# Spring Bean装配
+## 一、Beans配置方式
 |配置方式|描述|
 |:--|:--|
 |XML|使用 XML 配置文件中的定义的bean和元素来注入 。|
 |Annotation|通过代码中注解的方式来注入|
 
-##二、Beans自动装配
+## 二、Beans自动装配
 Spring可以通过XML配置文件来注入Beans，也可以通过Annotation(注解)的方式来实现注入，这种注入方式就是自动装配。自动装配的四种模式如下：
 |模式|描述|
 |:--|:--|
@@ -104,29 +104,38 @@ UserRole对象的两个属性role和user通过property进行关联。这样就�
 @Required 注释应用于 bean 属性的 setter 方法，它表明受影响的 bean 属性在配置时必须放在 XML 配置文件中，否则容器就会抛出一个 BeanInitializationException 异常
 
 配置：week5-case2.xml
+
 加载：BeanDemo.java
+
 用户：User.java
 
 经过实际测试，User bean里这个setter方法的@Required注解，加或不加，结果都一致。
+
 >User(id=null, name=Java)
 
 ##### 2.2、@Autowired注解
 
 @Autowired 注释对在哪里和如何完成自动连接提供了更多的细微的控制。
+
 @Autowired 注释可以在 setter 方法中被用于自动连接 bean，就像 @Autowired 注释，容器，一个属性或者任意命名的可能带有多个参数的方法。
+
 Setter 方法中的 @Autowired
+
 你可以在 XML 文件中的 setter 方法中使用 @Autowired 注释来除去元素。
+
 当 Spring遇到一个在 setter 方法中使用的 @Autowired 注释，它会在方法中视图执行 byType 自动连接。
 
-配置：week5-case2.xml
-加载：BeanDemo.java
-用户：User.java
-角色：Role.java
-用户角色：UserRole.java
+
+配置：week5-case2.xml<br/>
+加载：BeanDemo.java<br/>
+用户：User.java<br/>
+角色：Role.java<br/>
+用户角色：UserRole.java<br/>
 
 **属性中的 @Autowired**
-你可以在属性中使用 @Autowired 注释来除去 setter 方法。当时使用 为自动连接属性传递的时候，Spring 会将这些传递过来的值或者引用自动分配给那些属性。
-所以利用在属性中 @Autowired 的用法，你的 UserRole.java 文件将变成如下所示：
+<br/>
+你可以在属性中使用 @Autowired 注释来除去 setter 方法。当时使用 为自动连接属性传递的时候，Spring 会将这些传递过来的值或者引用自动分配给那些属性。<br/>
+所以利用在属性中 @Autowired 的用法，你的 UserRole.java 文件将变成如下所示：<br/>
 ```java
 package com.chg.geekbang.study.week5.springbean.case2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -141,6 +150,7 @@ public class UserRole {
 ```
 
 **构造函数中的 @Autowired**
+<br/>
 你也可以在构造函数中使用 @Autowired。一个构造函数 @Autowired 说明当创建 bean 时，即使在 XML 文件中没有使用 元素配置 bean ，
 
 ```java
@@ -165,7 +175,8 @@ com.chg.geekbang.study.week5.springbean.case2.UserRole@25a65b77
 ```
 
 **@Autowired 的（required=false）选项**
-默认情况下，@Autowired 注释意味着依赖是必须的，它类似于 @Required 注释，然而，你可以使用 @Autowired 的 （required=false） 选项关闭默认行为。
+<br/>
+默认情况下，@Autowired 注释意味着依赖是必须的，它类似于 @Required 注释，然而，你可以使用 @Autowired 的 （required=false） 选项关闭默认行为。<br/>
 即使你不为 age 属性传递任何参数，下面的示例也会成功运行，但是对于 name 属性则需要一个参数。你可以自己尝试一下这个示例，因为除了只有 User.java 文件被修改以外，它和 @Required 注释示例是相似的。
 
 ##### 2.3 @Resource实现装配

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="user" class="com.chg.geekbang.study.week5.springbean.case1.User">
+        <constructor-arg name="id" value="1"/>
+        <constructor-arg name="name" value="Java"/>
+    </bean>
+
+    <bean id="role" class="com.chg.geekbang.study.week5.springbean.case1.Role">
+        <property name="id" value="1"/>
+        <property name="name" value="管理员"/>
+    </bean>
+
+    <bean id="userRole" class="com.chg.geekbang.study.week5.springbean.case1.UserRole" autowire="constructor">
+        <constructor-arg name="user" ref="user"/>
+        <constructor-arg name="role" ref="role"/>
+    </bean>
+</beans>

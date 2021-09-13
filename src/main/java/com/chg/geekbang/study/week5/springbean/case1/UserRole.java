@@ -7,19 +7,14 @@ import lombok.ToString;
 
 /**
  * User: C.H.G
- * Date: 2021/9/8
- * Time: 下午4:26
+ * Date: 2021/9/13
+ * Time: 下午5:03
  */
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Student {
-    private int id;
-    private String name;
-
-    public void print() {
-        System.out.println(this.getName());
-
-    }
+@NoArgsConstructor
+public class UserRole {
+    private User user;
+    private Role role;
 }

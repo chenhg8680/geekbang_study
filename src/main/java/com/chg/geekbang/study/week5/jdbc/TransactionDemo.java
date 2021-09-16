@@ -49,7 +49,7 @@ public class TransactionDemo {
         String sql2 = "INSERT INTO task_student(name,age) values ('TRANS2',100)";
         try {
             conn.setAutoCommit(false);
-
+ 
             st = conn.createStatement();
             st.addBatch(sql1);
             st.addBatch(sql2);

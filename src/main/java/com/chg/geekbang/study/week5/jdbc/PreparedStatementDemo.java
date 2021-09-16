@@ -76,7 +76,7 @@ public class PreparedStatementDemo {
         Connection conn = MysqlConn.getInstance().getConn();
         Statement statement = null;
         String sql = "SELECT * FROM task_student";
-        try {
+        try { 
             statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(sql);
             System.out.println(rs.getFetchSize());

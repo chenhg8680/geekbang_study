@@ -40,6 +40,6 @@ public class MysqlConn {
         }
         public MysqlConn getInstance() {
             return conn;
-        }
+        } 
     }
 }

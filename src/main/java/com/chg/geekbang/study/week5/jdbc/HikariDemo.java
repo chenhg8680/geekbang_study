@@ -3,7 +3,7 @@ package com.chg.geekbang.study.week5.jdbc;
 /**
  * User: C.H.G
  * Date: 2021/9/16
- * Time: 下午3:27
+ * Time: 下午3:27 
  */
 
 import java.sql.Connection;
